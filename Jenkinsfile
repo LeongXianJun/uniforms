@@ -6,12 +6,7 @@ node {
     bat "npm ci"
   }
   stage('Lint') {
-    try {
-      bat "npm run lint"
-    }
-    catch(err) {
-      echo "Lint Error: ${err}" 
-    }
+    bat "npm run lint"
   }
   stage('Test') {
     bat "npm run coverage -- --no-cache --runInBand --watchAll=false --testResultsProcessor \"jest-sonar-reporter\""
